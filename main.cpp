@@ -15,6 +15,7 @@ void readFile(std::ifstream &file) {
 	} else {
 		std::cout << "Couldn't open file\n";
 	}
+	file.close();
 }
 
 int main(){
