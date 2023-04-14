@@ -4,27 +4,7 @@
 
 using namespace std;
 
-int main(){
-
-	int selection = 1;
-
-	switch (selection) {
-	case 1: 
-		std::cout << "Read" << std::endl;
-		break;
-	case 2:
-		std::cout << "Write" << std::endl;
-		break;
-	default:
-		std::cout << "Invalid selection" << std::endl;
-	}
-
-	std::cout << "You selected option " << selection << std::endl;
-
-	/*
-
-	// open file
-	std::ifstream file ("list.txt");
+void readFile(std::ifstream &file) {
 
 	if ( file.is_open() ) {
 		char ch;
@@ -35,8 +15,27 @@ int main(){
 	} else {
 		std::cout << "Couldn't open file\n";
 	}
-	
-	*/
+}
+
+int main(){
+
+	std::ifstream file ("list.txt");
+
+	int selection = 1;
+
+	switch (selection) {
+	case 1: 
+		std::cout << "Read" << std::endl;
+		readFile(file);
+		break;
+	case 2:
+		std::cout << "Write" << std::endl;
+		break;
+	default:
+		std::cout << "Invalid selection" << std::endl;
+	}
+
+	std::cout << "You selected option " << selection << std::endl;
 
 	return 0;
 }
