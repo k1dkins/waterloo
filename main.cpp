@@ -4,6 +4,12 @@
 
 using namespace std;
 
+char* getCurrentTime(){
+	time_t now = time(0);
+	char* date_time = ctime(&now);
+	return date_time;
+}
+
 void readFile(std::ifstream &file, std::ofstream &log) {
 
 	if ( file.is_open() && log.is_open() ) {
@@ -13,12 +19,13 @@ void readFile(std::ifstream &file, std::ofstream &log) {
 			std::cout << ch;
 		}
 		// logging
-		std::string str = "\nSuccessfully wrote to: ";
-		log << str;
+		char* time = getCurrentTime();
+		std::string str = "\nSuccessfully wrote to file.";
+		log << time << str;
 	} else {
 		// logging
-		std::string str = "\nFailure, was not able to read from: ";
-		log << str;
+		std::string str = "\nFailure, was not able to read from file.";
+		log << time << str;
 	}
 	file.close();
 }
