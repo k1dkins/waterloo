@@ -4,16 +4,21 @@
 
 using namespace std;
 
-void readFile(std::ifstream &file) {
+void readFile(std::ifstream &file, std::ofstream &log) {
 
-	if ( file.is_open() ) {
+	if ( file.is_open() && log.is_open() ) {
 		char ch;
 		while ( file ) {
 			ch = file.get();
 			std::cout << ch;
 		}
+		// logging
+		std::string str = "\nSuccessfully wrote to: ";
+		log << str;
 	} else {
-		std::cout << "Couldn't open file\n";
+		// logging
+		std::string str = "\nFailure, was not able to read from: ";
+		log << str;
 	}
 	file.close();
 }
@@ -21,13 +26,14 @@ void readFile(std::ifstream &file) {
 int main(){
 
 	std::ifstream file ("list.txt");
+	std::ofstream log ("log.txt", std::ios::app);
 
 	int selection = 1;
 
 	switch (selection) {
 	case 1: 
 		std::cout << "Read" << std::endl;
-		readFile(file);
+		readFile(file, log);
 		break;
 	case 2:
 		std::cout << "Write" << std::endl;
