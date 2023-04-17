@@ -33,13 +33,16 @@ void readFile(std::ifstream &file, std::ofstream &log) {
 
 int main(){
 
+	int selection;
+
 	// start time
 	clock_t start = clock();
 
 	std::ifstream file ("list.txt");
 	std::ofstream log ("log.txt", std::ios::app);
 
-	int selection = 1;
+	printf("Enter selection: ");
+	scanf("%d", &selection);
 
 	switch (selection) {
 	case 1: 
