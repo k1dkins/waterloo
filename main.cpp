@@ -46,7 +46,6 @@ int main(){
 
 	switch (selection) {
 	case 1: 
-		std::cout << "Read" << std::endl;
 		readFile(file, log);
 		break;
 	case 2:
@@ -55,8 +54,6 @@ int main(){
 	default:
 		std::cout << "Invalid selection" << std::endl;
 	}
-
-	std::cout << "You selected option " << selection << std::endl;
 
 	// end time
 	clock_t end = clock();
