@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <time.h>
 
 using namespace std;
 
@@ -32,6 +33,9 @@ void readFile(std::ifstream &file, std::ofstream &log) {
 
 int main(){
 
+	// start time
+	clock_t start = clock();
+
 	std::ifstream file ("list.txt");
 	std::ofstream log ("log.txt", std::ios::app);
 
@@ -50,6 +54,11 @@ int main(){
 	}
 
 	std::cout << "You selected option " << selection << std::endl;
+
+	// end time
+	clock_t end = clock();
+	double elapsed = double(end - start)/CLOCKS_PER_SEC;
+	printf("Time: %.5f seconds.\n", elapsed);
 
 	return 0;
 }
