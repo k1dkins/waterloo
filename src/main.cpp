@@ -21,12 +21,12 @@ void readFile(std::ifstream &file, std::ofstream &log) {
 		}
 		// logging
 		char* time = getCurrentTime();
-		std::string str = "\nSuccessfully wrote to file.";
-		log << time << str;
+		std::string str = "Successfully wrote to file.";
+		log << str << " " << time;
 	} else {
 		// logging
-		std::string str = "\nFailure, was not able to read from file.";
-		log << time << str;
+		std::string str = "Failure, was not able to read from file.";
+		log << str << time;
 	}
 	file.close();
 }
@@ -38,8 +38,8 @@ int main(){
 	// start time
 	clock_t start = clock();
 
-	std::ifstream file ("list.txt");
-	std::ofstream log ("log.txt", std::ios::app);
+	std::ifstream file ("../data/list.txt");
+	std::ofstream log ("../data/logs/log.txt", std::ios::app);
 
 	printf("Enter selection: ");
 	scanf("%d", &selection);
