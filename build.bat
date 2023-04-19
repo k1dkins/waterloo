@@ -1,5 +1,5 @@
 @echo off
 mkdir build
 pushd build
-cl -Zi /EHsc ..\main.cpp
+cl -Zi /EHsc ..\src\main.cpp
 popd
