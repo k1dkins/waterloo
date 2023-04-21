@@ -14,10 +14,12 @@ char* getCurrentTime(){
 void readFile(std::ifstream &file, std::ofstream &log) {
 
 	if ( file.is_open() && log.is_open() ) {
-		char ch;
+		int id = 0;
+		std::string line;
 		while ( file ) {
-			ch = file.get();
-			std::cout << ch;
+			std::getline(file, line);
+			++id;
+			std::cout << id << ": " << line << std::endl;
 		}
 		// logging
 		char* time = getCurrentTime();
@@ -58,7 +60,7 @@ int main(){
 	// end time
 	clock_t end = clock();
 	double elapsed = double(end - start)/CLOCKS_PER_SEC;
-	printf("Time: %.5f seconds.\n", elapsed);
+	printf("\nTime: %.5f seconds.\n", elapsed);
 
 	return 0;
 }
